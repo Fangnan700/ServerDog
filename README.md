@@ -52,7 +52,7 @@ chmod +x server_dog
 
 连接其他机器：
 
-在待服务器上按上述步骤运行程序，同时放行websocket端口；
+在待连接服务器上按上述步骤运行程序，同时放行websocket端口；
 
 在面板右上角输入待连接服务器的ip+websocket端口，即可连接。
 
