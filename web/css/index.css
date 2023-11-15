@@ -1,0 +1,148 @@
+@font-face {
+    font-family: 'Maozi';
+    src: url('../font/miaozi.ttf');
+}
+
+.title_frame {
+    width: 100%;
+    height: fit-content;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    padding-bottom: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    width: 1572px;
+    height: fit-content;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Maozi', sans-serif;
+    color: #515151;
+    display: flex;
+}
+
+.main_title {
+    color: #515151;
+    margin-left: 10px;
+}
+
+.input_frame {
+    width: 500px;
+    margin-top: 18px;
+    margin-left: auto;
+}
+
+.content {
+    width: fit-content;
+    height: fit-content;
+    margin-top: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.card-side {
+    width: 450px;
+    margin: 10px;
+}
+
+.card-main {
+    width: 600px;
+    margin: 10px;
+}
+
+.info_item {
+    margin-bottom: 20px;
+    padding: 5px;
+    display: flex;
+    border: #a0a3a5 1px solid;
+    border-radius: 5px;
+}
+
+.info_title {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Maozi', sans-serif;
+}
+
+.info_text {
+    font-family: 'Maozi', sans-serif;
+}
+
+.net_info {
+    width: 200px;
+    height: fit-content;
+    margin: 25px;
+    text-align: center;
+}
+
+.message_text {
+    font-size: 18px;
+    font-family: 'Maozi', sans-serif;
+}
+
+
+/*环形进度条*/
+.svg_frame {
+    display: flex;
+}
+
+.svg_div {
+    width: fit-content;
+    height: fit-content;
+    margin: 15px 30px;
+}
+
+.svg_circle {
+    transform:rotate(-90deg);
+    transform-origin: center;
+    transform-box:fill-box;
+}
+
+.svg_text {
+    font-size: 20px;
+    font-family: 'Maozi', sans-serif;
+}
+
+/*滚动条样式*/
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background: rgb(179, 177, 177);
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgb(136, 136, 136);
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: rgb(100, 100, 100);
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:active {
+    background: rgb(68, 68, 68);
+    border-radius: 10px;
+}
+
+/*版权声明*/
+.bottom_div
+{
+    width:100%;
+    position: fixed;
+    bottom: 0;
+    padding: 5px;
+    background-color: #ffffff;
+    text-align:center;
+    z-index: 9999;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>面板 | ServerDog</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--标题-->
+<div class="title_frame">
+    <div class="title">
+        <svg t="1700036014906" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5075" width="48" height="48"><path d="M992 192h-128l-14.32-28.62A64 64 0 0 0 792.44 128H685.2l-54.56-54.56C610.46 53.28 576 67.56 576 96.06v299.68l256 91.42V416h64c70.7 0 128-57.3 128-128v-64c0-17.68-14.32-32-32-32z m-224 96c-17.68 0-32-14.32-32-32s14.32-32 32-32 32 14.32 32 32-14.32 32-32 32zM192 448c-35.28 0-64-28.72-64-64 0-35.34-28.66-64-64-64S0 348.66 0 384c0 83.32 53.66 153.7 128 180.2V992c0 17.68 14.32 32 32 32h128c17.68 0 32-14.32 32-32V768h320v224c0 17.68 14.32 32 32 32h128c17.68 0 32-14.32 32-32V555.1L532.1 448H192z" p-id="5076" fill="#515151"></path></svg>
+        <div class="main_title">
+            ServerDog
+        </div>
+        <div class="input_frame">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="添加主机请输入主机地址和端口" id="server_addr_input">
+                <button class="btn btn-outline-secondary" type="button" id="server_addr_btn" onclick="add_server()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--主体-->
+<div class="content" id="content">
+    <div class="info_item">
+        <div class="card card-main">
+            <div class="card-body">
+                <div class="info_title">主机信息</div>
+                <div class="info_text">主机名称：-</div>
+                <div class="info_text">操作系统：-</div>
+                <div class="info_text">发行版本：-</div>
+                <div class="info_text">平台家族：-</div>
+                <div class="info_text">平台版本：-</div>
+                <div class="info_text">内核架构：-</div>
+                <div class="info_text">内核版本：-</div>
+                <div class="info_text">最近登录：-</div>
+                <div class="info_text">运行时间：-</div>
+                <div class="info_text">服务商：-</div>
+                <div class="info_text">归属地：-</div>
+                <br>
+                <div class="info_title">CPU信息</div>
+                <div class="info_text">CPU型号：-</div>
+                <div class="info_text">CPU缓存：-</div>
+                <div class="info_text">CPU主频：-</div>
+                <div class="info_text">CPU核心数：-</div>
+                <div class="info_text">CPU占用比：-</div>
+                <div class="info_text">当前进程数：-</div>
+                <div class="info_text">当前线程数：-</div>
+            </div>
+        </div>
+
+        <div class="card card-side">
+            <div class="card-body">
+                <div class="info_title">磁盘信息</div>
+                <div class="info_text">磁盘容量：-</div>
+                <div class="info_text">已用容量：-</div>
+                <div class="info_text">空闲容量：-</div>
+                <div class="info_text">读取总量：-</div>
+                <div class="info_text">写入总量：-</div>
+                <div class="info_text">磁盘占用比：-</div>
+                <br>
+                <div class="info_title">内存信息</div>
+                <div class="info_text">内存容量：-</div>
+                <div class="info_text">可用内存：-</div>
+                <div class="info_text">空闲内存：-</div>
+                <div class="info_text">缓存占用：-</div>
+                <div class="info_text">内存占用比：-</div>
+                <br>
+                <div class="info_title">交换分区信息</div>
+                <div class="info_text">交换分区容量：-</div>
+                <div class="info_text">已用交换分区：-</div>
+                <div class="info_text">空闲交换分区：-</div>
+                <div class="info_text">交换分区占用比：-</div>
+            </div>
+        </div>
+
+        <div class="card card-side">
+            <div class="card-body">
+                <div class="svg_frame">
+                    <div class="svg_div">
+                        <svg width="150" height="150">
+                            <circle class="svg_circle" cx="75" cy="75" r="60" stroke="#e0e0e0" stroke-width="10" fill="none" />
+                            <circle class="svg_circle" cx="75" cy="75" r="60" stroke="${cpu_used>90 ? '#ffaaa5' : (cpu_used>60 ? '#ffd3b6' : '#a8e6cf')}" stroke-width="10" fill="none"
+                                    stroke-dasharray="502.65"
+                                    stroke-dashoffset="0"
+                            />
+                            <text class="svg_text" x="80" y="85" fill="#6b778c" text-anchor="middle">
+                                <tspan x="85" dy="-0.9em">CPU</tspan>
+                                <tspan x="75" dy="1.3em">-</tspan>
+                            </text>
+                        </svg>
+                    </div>
+
+                    <div class="svg_div">
+                        <svg width="150" height="150">
+                            <circle class="svg_circle" cx="75" cy="75" r="60" stroke="#e0e0e0" stroke-width="10" fill="none" />
+                            <circle class="svg_circle" cx="75" cy="75" r="60" stroke="${mem_used>90 ? '#ffaaa5' : (mem_used>60 ? '#ffd3b6' : '#a8e6cf')}" stroke-width="10" fill="none"
+                                    stroke-dasharray="502.65"
+                                    stroke-dashoffset="0"
+                            />
+                            <text class="svg_text" x="80" y="85" fill="#6b778c" text-anchor="middle">
+                                <tspan x="85" dy="-0.9em">RAM</tspan>
+                                <tspan x="75" dy="1.3em">-</tspan>
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="svg_frame">
+                    <div class="svg_div">
+                        <svg width="150" height="150">
+                            <circle class="svg_circle" cx="75" cy="75" r="60" stroke="#e0e0e0" stroke-width="10" fill="none" />
+                            <circle class="svg_circle" cx="75" cy="75" r="60" stroke="${swap_used>90 ? '#ffaaa5' : (swap_used>60 ? '#ffd3b6' : '#a8e6cf')}" stroke-width="10" fill="none"
+                                    stroke-dasharray="502.65"
+                                    stroke-dashoffset="0"
+                            />
+                            <text class="svg_text" x="80" y="85" fill="#6b778c" text-anchor="middle">
+                                <tspan x="85" dy="-0.9em">Swap</tspan>
+                                <tspan x="75" dy="1.3em">-</tspan>
+                            </text>
+                        </svg>
+                    </div>
+
+                    <div class="svg_div">
+                        <svg width="150" height="150">
+                            <circle class="svg_circle" cx="75" cy="75" r="60" stroke="#e0e0e0" stroke-width="10" fill="none" />
+                            <circle class="svg_circle" cx="75" cy="75" r="60" stroke="${disk_used>90 ? '#ffaaa5' : (disk_used>60 ? '#ffd3b6' : '#a8e6cf')}" stroke-width="10" fill="none"
+                                    stroke-dasharray="502.65"
+                                    stroke-dashoffset="0"
+                            />
+                            <text class="svg_text" x="80" y="85" fill="#6b778c" text-anchor="middle">
+                                <tspan x="85" dy="-0.9em">Disk</tspan>
+                                <tspan x="75" dy="1.3em">-</tspan>
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="svg_frame">
+                    <div class="info_text net_info">上行：-</div>
+                    <div class="info_text net_info">下行：-</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--版权声明-->
+<div class="bottom_div">
+    <span>©2023 <a href="https://github.com/Fangnan700" class="link-secondary">Fangnan700</a>. All rights reserved.</span>
+</div>
+
+
+<!-- Bootstrap Toast 消息 -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">ServerDog的消息</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="messageText">
+
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="js/index.js"></script>
+</html>
