@@ -288,7 +288,7 @@ function add_server() {
         })
     };
 
-    fetch("http://127.0.0.1:7776/add",options)
+    fetch("/add",options)
         .then(resp => {
             let toastElement = document.getElementById("liveToast");
             let toastMessage = document.getElementById("messageText");
