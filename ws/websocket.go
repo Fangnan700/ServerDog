@@ -126,7 +126,7 @@ Websocket服务端
 func StartWebsocketServer(port int) {
 	addr := fmt.Sprintf("0.0.0.0:%d", port)
 	http.HandleFunc("/info", handleWebSocketConnection)
-	log.Println("Server dog is listening at: ", addr)
+	log.Println("Server dog's websocket is listening at: ", addr)
 	err := http.ListenAndServe(addr, nil)
 	if err != nil {
 		panic(err)

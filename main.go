@@ -107,6 +107,7 @@ func main() {
 		_, _ = w.Write([]byte("yes!this is fangnan700's code!"))
 	})
 
+	log.Printf("Server dog's ui panel is runing at: %s", uiAddr)
 	_ = http.ListenAndServe(uiAddr, nil)
 }
 
